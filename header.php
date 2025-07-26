@@ -69,31 +69,46 @@ if(isset($_SESSION["cart"]))
     </div> <!-- End site branding area -->
     
     <div class="mainmenu-area">
-        <div class="container">
-            <div class="row">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div> 
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.php">Home</a></li>
-                        <?php
-						include("admin/config.php");
-						$exe = mysqli_query($connect,"select * from categorytable");
-						while($row = mysqli_fetch_array($exe))
-						{
-						?>
-                        <li><a href="shop.php?c_id=<?php echo $row["cat_id"]?>"><?php echo $row["cat_name"]?></a></li>
-                        <?php
-						}
-						?>
-                    </ul>
-                </div>  
-            </div>
+    <div class="container">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div> 
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" style="width:100%;">
+
+                    <!-- ✅ Categories Left -->
+                    <li class="active"><a href="index.php">Home</a></li>
+                    <?php
+                    include("admin/config.php");
+                    $exe = mysqli_query($connect,"SELECT * FROM categorytable");
+                    while($row = mysqli_fetch_array($exe)){
+                        echo '<li><a href="shop.php?c_id='.$row["cat_id"].'">'.$row["cat_name"].'</a></li>';
+                    }
+                    ?>
+
+                    <!-- ✅ Right Side Login/Register/Logout -->
+                    <li style="margin-left:auto; display:flex; align-items:center; gap:10px;">
+
+                        <?php if(isset($_SESSION['user_name'])) { ?>
+                            <!-- ✅ Show Username and Logout -->
+                            <span style="color:white; font-weight:bold;">👤 <?php echo $_SESSION['user_name']; ?></span>
+                            <a href="logout.php" class="btn btn-danger btn-sm">Logout</a>
+
+                        <?php } else { ?>
+                            <!-- ✅ Show Only Register -->
+                            <a href="register.php" class="btn btn-success btn-sm">Register</a>
+                        <?php } ?>
+
+                    </li>
+                </ul>
+            </div>  
         </div>
-    </div> <!-- End mainmenu area -->
+    </div>
+</div>

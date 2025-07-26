@@ -75,7 +75,8 @@ if(!isset($_SESSION["userlogin"] ))
                 <!--  search form end -->                
             </div>
 
-            <div class="top-nav notification-row">                
+            <div class="top-nav notification-row">     
+                           
                 <!-- notificatoin dropdown start-->
                 <ul class="nav pull-right top-menu">
                     

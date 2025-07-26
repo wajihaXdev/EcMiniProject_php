@@ -15,10 +15,12 @@ if(isset($_POST['login'])){
 
     while($data = mysqli_fetch_assoc($val)){
         if($useremail == $data['email'] && $userpass == $data['password'] && $data['user_role'] == 'admin'){
-            $_SESSION['admin_name'] = $data['name'];
+            $_SESSION['user_name'] = $data['name'];
+            $_SESSION['user_role'] = $data['user_role'];
             header('location: admin/dashboard.php');
         }elseif($useremail == $data['email'] && $userpass == $data['password'] && $data['user_role'] == 'user'){
             $_SESSION['user_name'] = $data['name'];
+            $_SESSION['user_role'] = $data['user_role'];
             header('location: index.php');
         }
     }
