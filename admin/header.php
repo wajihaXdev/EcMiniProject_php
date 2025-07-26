@@ -157,6 +157,28 @@ if(!isset($_SESSION["userlogin"] ))
                         
                       </ul>
                   </li>
+                  <li class="sub-menu">
+                  <a href="javascript:;" class="">
+                         
+                         <span>Website</span>
+                         <span class="menu-arrow arrow_carrot-right"></span>
+                     </a>
+                     <ul class="sub">
+                         <li>  <a href="../index.php">page</a></li>
+                     </ul>
+                  </li>
+                  <li class="sub-menu">
+                  <a href="javascript:;" class="">
+                         
+                         <span>Add User</span>
+                         <span class="menu-arrow arrow_carrot-right"></span>
+                     </a>
+                     <ul class="sub">
+                         <li>  <a href="adduser.php">Add User</a></li>
+                         <li>  <a href="showuser.php">Show User</a></li>
+                     </ul>
+                  </li>
+                             
                              
                   
                   
